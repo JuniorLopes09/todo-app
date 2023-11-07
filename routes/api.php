@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\TarefaController;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\Api\V1\TarefaController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,11 +15,16 @@ use \App\Http\Controllers\Api\V1\TarefaController;
 |
 */
 
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Rotas autenticadas
+Route::group([
+    'prefix' => 'v1',
+    'namespace' => 'App\Http\Controllers\Api\V1',
+    'middleware' => ['auth:sanctum']], function () {
+   Route::apiResource('tarefas', TarefaController::class);
 });
 
-Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function (){
-   Route::apiResource('tarefas', TarefaController::class);
+// Rotas liberadas
+Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function () {
+    Route::post('login',[AuthController::class, 'login']);
+    Route::post('register',[AuthController::class, 'register']);
 });

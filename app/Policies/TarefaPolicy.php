@@ -21,7 +21,7 @@ class TarefaPolicy
      */
     public function view(User $user, Tarefa $tarefa): bool
     {
-        //
+        return $user->id === $tarefa->user_id;
     }
 
     /**
@@ -37,7 +37,7 @@ class TarefaPolicy
      */
     public function update(User $user, Tarefa $tarefa): bool
     {
-        //
+        return $user->id == $tarefa->user_id;
     }
 
     /**
@@ -45,7 +45,7 @@ class TarefaPolicy
      */
     public function delete(User $user, Tarefa $tarefa): bool
     {
-        //
+        return $user->id === $tarefa->user_id;
     }
 
     /**
