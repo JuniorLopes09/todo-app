@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests\V1;
+namespace App\Http\Requests\V1\Tarefa;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class UpdateTarefaRequest extends FormRequest
@@ -12,7 +13,7 @@ class UpdateTarefaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::user()->can('update', $this->route('tarefa'));
     }
 
     /**
