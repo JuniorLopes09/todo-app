@@ -28,16 +28,4 @@ class StoreUserRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'O campo "name" é obrigatório',
-            'name.regex' => 'O campo "name" não pode estar em branco',
-            'name.max' => 'O campo "name" deve conter no máximo 50 caracteres',
-            'password.required' => 'O campo "password" é obrigatório',
-            'password.max' => 'O campo "password" deve conter no máximo 50 caracteres',
-            'email.required' => 'O campo "email" é obrigatório',
-            'email.email' => 'O campo "email" deve conter um email válido'
-        ];
-    }
 }

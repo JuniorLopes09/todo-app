@@ -29,13 +29,4 @@ class UpdateTarefaRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
-    {
-        return [
-            'nome.required' => 'O campo "nome" é obrigatório',
-            'nome.regex' => 'O campo "nome" não pode estar em branco',
-            'nome.max' => 'O campo "nome" deve conter no máximo 50 caracteres',
-            'concluida.in' => 'O campo "concluida" deve ser 0 ou 1'
-        ];
-    }
 }
