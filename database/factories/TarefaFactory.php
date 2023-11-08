@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,8 @@ class TarefaFactory extends Factory
         $randomNumber = $this->faker->numberBetween(1, 9999);
         return [
             'nome' => "Tarefa $randomNumber",
-            'concluida' => $this->faker->boolean()
+            'concluida' => $this->faker->boolean(),
+            'user_id' => User::factory()
         ];
     }
 }
