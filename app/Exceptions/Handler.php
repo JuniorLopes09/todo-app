@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException as ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,8 +40,11 @@ class Handler extends ExceptionHandler
             $gender = $this->getGender($model);
             return response()->json(['error' => "$model não encontrad$gender"], Response::HTTP_NOT_FOUND);
         }
-        elseif ($e instanceof AuthorizationException ) {
+        elseif ($e instanceof AuthorizationException) {
             return response()->json(['error' => "Usuário não autorizado"], Response::HTTP_UNAUTHORIZED);
+        }
+        elseif ($e instanceof AuthenticationException) {
+            return response()->json(['error' => "Usuário não autenticado"], Response::HTTP_UNAUTHORIZED);
         }
 
         return parent::render($request, $e);
