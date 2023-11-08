@@ -21,6 +21,7 @@ Route::group([
     'namespace' => 'App\Http\Controllers\Api\V1',
     'middleware' => ['auth:sanctum']], function () {
    Route::apiResource('tarefas', TarefaController::class);
+   Route::post('logout',[AuthController::class, 'logout']);
 });
 
 // Rotas liberadas

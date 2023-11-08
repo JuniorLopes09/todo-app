@@ -31,7 +31,8 @@ class AuthController extends Controller
         return response()->json(['error' => 'Usuário ou senha inválidos'], Response::HTTP_UNAUTHORIZED);
     }
 
-    public function logout(Request $request) {
-
+    public function logout(Request $request): void
+    {
+        $request->user()->tokens()->delete();
     }
 }
