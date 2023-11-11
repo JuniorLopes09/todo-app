@@ -38,13 +38,13 @@ class Handler extends ExceptionHandler
         {
             $model = $this->formatModelName($e->getModel());
             $gender = $this->getGender($model);
-            return response()->json(['error' => "$model não encontrad$gender"], Response::HTTP_NOT_FOUND);
+            return response()->json(['message' => "$model não encontrad$gender"], Response::HTTP_NOT_FOUND);
         }
         elseif ($e instanceof AuthorizationException) {
-            return response()->json(['error' => "Usuário não autorizado"], Response::HTTP_UNAUTHORIZED);
+            return response()->json(['message' => "Usuário não autorizado"], Response::HTTP_UNAUTHORIZED);
         }
         elseif ($e instanceof AuthenticationException) {
-            return response()->json(['error' => "Usuário não autenticado"], Response::HTTP_UNAUTHORIZED);
+            return response()->json(['message' => "Usuário não autenticado"], Response::HTTP_UNAUTHORIZED);
         }
 
         return parent::render($request, $e);
