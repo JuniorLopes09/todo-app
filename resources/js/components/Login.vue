@@ -25,10 +25,9 @@
 </template>
 
 <script setup>
-import { useApi } from "@/services/useApi"
 import { reactive } from "vue"
+import { useApi } from "@/services/useApi"
 import { useNotification } from "@/services/useNotifications";
-
 
 const api = useApi()
 const { error } = useNotification()
@@ -48,10 +47,10 @@ const props = defineProps({
 async function login(event) {
     try {
         const { data } = await api.post('/login', form)
-        sessionStorage.setItem('token', data?.token)
+        document.cookie = `token=${data?.token}`
         event.target.submit()
     } catch ({ response }) {
-        error(response?.data?.error)
+        error(response?.data?.message)
     }
 }
 </script>
