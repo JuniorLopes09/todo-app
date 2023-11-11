@@ -1,6 +1,6 @@
 # Todo App
 
-Bem-vindo ao Todo App! Este é um aplicativo simples de lista de tarefas desenvolvido com Laravel e Vue.js.\
+Bem-vindo ao Todo App! Este é um aplicativo simples de lista de tarefas desenvolvido com Laravel e Vue.js
 
 ![image](https://github.com/JuniorLopes09/todo-app/assets/62529285/fa9cf758-8c4f-4dd4-bccf-b08cc05fa3f3)
 
@@ -8,7 +8,7 @@ Bem-vindo ao Todo App! Este é um aplicativo simples de lista de tarefas desenvo
 ## Requisitos
 
 Certifique-se de ter os seguintes requisitos instalados antes de prosseguir:
-
+- [PHP 8.1](https://www.php.net/)
 - [Git](https://git-scm.com/)
 - [Composer](https://getcomposer.org/)
 - [Node.js](https://nodejs.org/)
