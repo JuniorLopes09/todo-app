@@ -8,10 +8,8 @@ Bem-vindo ao Todo App! Este é um aplicativo simples de lista de tarefas desenvo
 ## Requisitos
 
 Certifique-se de ter os seguintes requisitos instalados antes de prosseguir:
-- [PHP 8.1](https://www.php.net/)
+
 - [Git](https://git-scm.com/)
-- [Composer](https://getcomposer.org/)
-- [Node.js](https://nodejs.org/)
 - [Docker](https://www.docker.com/)
 
 ## Configuração do Projeto
@@ -21,41 +19,30 @@ Certifique-se de ter os seguintes requisitos instalados antes de prosseguir:
    ```bash
    git clone https://github.com/JuniorLopes09/todo-app.git
    ```
-   
-2. **Instalar dependências PHP com Composer:**
-
-    ```bash
-    composer install
-    ```
-    
-3. **Instalar dependências JavaScript com npm:**
-
-    ```bash
-    npm install
-    ```
-
-4. **Copiar o arquivo de ambiente:**
+2. **Copiar o arquivo de ambiente:**
     ```bash
     cp .env.example .env
     ```
-    OBS: Abra o arquivo .env e configure as variáveis de ambiente, se necessário.
+   OBS: Abra o arquivo .env e configure as variáveis de ambiente, se necessário.
 
-5. **Compilar os recursos JavaScript e CSS:**
-    - Para desenvolvimento:
+
+3. **Levantar a instância do Docker:**
+
     ```bash
-    npm run dev
+    docker-compose up -d 
     ```
-    - Para produção:
+
+4. **Baixar as dependências do projeto:**
     ```bash
-    npm run build
+    docker-compose exec laravel.test composer install && npm install
+    ```
+5. **Realizar o build das views:**
+    ```bash
+    docker-compose exec laravel.test npm run build
     ```
 6. **Levantar a aplicação com Sail:**
     ```bash
     ./vendor/bin/sail up -d
-    ```
-7. **Executar as migrações e popular o banco de dados:**
-    ```bash
-    ./vendor/bin/sail artisan migrate --seed
     ```
 ## Acesso à Aplicação
 Depois de concluir os passos acima, acesse a aplicação em http://localhost ou http://todo-app.test
