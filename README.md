@@ -45,7 +45,7 @@ Certifique-se de ter os seguintes requisitos instalados antes de prosseguir:
     ./vendor/bin/sail up -d
     ```
 ## Acesso à Aplicação
-Depois de concluir os passos acima, acesse a aplicação em http://localhost ou http://todo-app.test
+Depois de concluir os passos acima, acesse a aplicação em http://todo-app.test
 
 ## Comandos Úteis
 1. **Levantar a aplicação com Sail:**
